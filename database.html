@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<!-- <script sec="javascript.js"></script> -->
+       <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	</head>
+	<body
+          style="background-colour: #d3d3d3 no-repeat;">
+
+
+		<h1 class="actionbar" style= "font-weight:light;"> Database </h1>
+        <div class="navigation_bar">
+            <img src="Logo.png" class = "img">
+            <ul style="list-style:none; padding:10px 0px;">
+                <li  style='padding:20px 10px;'><a href='index.html'>Dashboard</a></li>
+                <li> &nbsp;</li>
+                <li  style='background-color:#00a8a8; padding:20px 10px;'><a href='database.html'>Database</a></li>
+            </ul>
+            </ul>
+        </nav>
+        </div>
+        <table class = "striped">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Mobile Number</th>
+              <th data-field="price">Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Amaan</td>
+            <td>+971553956789</td>
+            <td id="notsent1">Not Sent</td>
+              <a class="waves-effect waves-light btn button1 " onclick="send1()" id = "send">SEND</a>
+          </tr>
+          <tr>
+            <td>Leane</td>
+            <td>+971507902840</td>
+            <td id="notsent2">Not Sent</td>
+              <a class="waves-effect waves-light btn button2" id = "send" onclick="send2()">SEND</a>
+          </tr>
+        </tbody>
+      </table>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+			<script>
+				function success() {
+					console.log(0);
+
+				}
+
+				function send1() {
+					var data = {
+					    'To': '+971553954789',
+					    'From': '+16305900043',
+					    'Body': 'Emergency Alert, please evacuate!!'
+					  };
+						document.getElementById("notsent1").innerHTML = "Sent";
+
+					  $.ajax({
+					    type: "POST",
+					    url: "https://api.twilio.com/2010-04-01/Accounts/ACe4f8a304ab7204bd3adb16decbf35e28/Messages.json",
+					    data: data,
+					    success: success,
+					    dataType: 'json',
+					    headers: {
+					      "Authorization": "Basic " + btoa('ACe4f8a304ab7204bd3adb16decbf35e28' + ":" + '7eaaeaac35ee2382a51906c6684a03a0')
+					    },
+					  });
+				}
+
+
+				function send2() {
+					var data = {
+							'To': '+971507902840',
+							'From': '+16305900043',
+							'Body': 'Emergency Alert, please evacuate!!'
+						};
+							document.getElementById("notsent2").innerHTML = "Sent";
+
+						$.ajax({
+							type: "POST",
+							url: "https://api.twilio.com/2010-04-01/Accounts/ACe4f8a304ab7204bd3adb16decbf35e28/Messages.json",
+							data: data,
+							success: success,
+							dataType: 'json',
+							headers: {
+								"Authorization": "Basic " + btoa('ACe4f8a304ab7204bd3adb16decbf35e28' + ":" + '7eaaeaac35ee2382a51906c6684a03a0')
+							},
+						});
+				}
+			</script>
+	</body>
+</html>

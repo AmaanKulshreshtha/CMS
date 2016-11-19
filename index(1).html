@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<!-- <script sec="javascript.js"></script> -->
+        <!-- Compiled and minified CSS -->
+   <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<script>
+$(document).ready(function(){
+        $("#expanded-flightcard1").fadeOut();
+        $("#expanded-flightcard2").fadeOut();
+
+        $("#um").click(function(){
+        $("#flight1").fadeIn();
+        $("#flight2").fadeIn();
+    });
+
+    $("#flight1").click(function(){
+        $("#expanded-flightcard1").fadeOut();
+        $("#expanded-flightcard1").fadeIn();
+        document.getElementById("expanded-flightcard1");
+    });
+    $("#flight2").click(function(){
+        $("#expanded-flightcard2").fadeOut();
+        $("#expanded-flightcard2").fadeIn();
+        document.getElementById("expanded-flightcard2");
+    });
+
+});
+</script>
+
+	</head>
+	<body 
+          style="background-colour: #d3d3d3 no-repeat;">
+        
+        <div class="flightres">
+			<div id="flight1" class="flightcards ripple"> 
+                    <h2 id="Temperature">Temperature (in C)</h2>
+                    <script>
+                        var TempNo = (Math.random() * 100 + 1).toFixed(2);
+                        document.write(TempNo);
+                    </script>
+				<br/>
+			</div>
+			<div id="flight2" class="flightcards ripple"> 
+                <h2>Pressure (in atm)</h2>
+                <script>
+                        var PressNo = (Math.random() * 1 + 1).toFixed(2);
+                       document.write(PressNo);
+                    </script>
+			</div>
+		</div>
+        <div class = "expanded-flightcard1" id="expanded-flightcard1">
+            <img src="Temp_graph.png">
+        </div>
+        <div class = "expanded-flightcard2" id="expanded-flightcard2">
+            <img src="Press_graph.png">
+        </div>
+		<h1 class="actionbar" style= "font-weight:light;">Dashboard</h1>
+        <div class="navigation_bar">
+            <img src="Logo.png" class = "img">
+            <ul style="list-style:none; padding:10px 0px;">
+                <li  style='background-color:#00a8a8; padding:20px 10px;'><a href='index.html'>Dashboard</a></li>
+                <li> &nbsp;</li>
+                <li  style='padding:20px 10px;'><a href='database.html'>Database</a></li>
+            </ul>
+        </nav>
+        </div>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	</body>
+</html>
